@@ -21,7 +21,6 @@
 
    if (circlock_savedLoadChecked !== "true") {
       window.addEventListener("load", () => {
-         console.log(" window.addEventListenerが実行");
          loadOverlayOpen();
          Container.style.display = "none";
          menuBtn.style.display = "none";
@@ -33,11 +32,9 @@
    }
 
    function loadOverlayOpen() {
-      console.log("loadOverlayOpen()が実行");
       loadCircle.style.display = "flex";
       loadCircle.style.animation = "expand .5s ease-in forwards";
       loadOverlay.style.display = "flex";
-      console.log("loadOverlayOpen()が実行2");
 
       setTimeout(() => {
             loadOverlay.style.opacity = "1";
