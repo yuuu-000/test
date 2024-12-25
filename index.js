@@ -21,10 +21,10 @@
 
    if (circlock_savedLoadChecked !== "true") {
       window.addEventListener("load", () => {
-         loadOverlayOpen();
          Container.style.display = "none";
          menuBtn.style.display = "none";
-
+         loadOverlayOpen();
+         
          loadCloseBtn.addEventListener("click", () => {
             loadOverlayClose();
          })
@@ -32,11 +32,11 @@
    }
 
    function loadOverlayOpen() {
+      loadCircle.style.display = "flex";
+      loadOverlay.style.display = "flex";      
       setTimeout(() => {
-            loadCircle.style.display = "flex";
-            loadCircle.style.animation = "expand .45s ease-in forwards";
-            loadOverlay.style.display = "flex";
-      }, 350)
+            loadCircle.style.animation = "expand .5s ease-in forwards";
+      }, 300)
       
       setTimeout(() => {
             loadOverlay.style.opacity = "1";
