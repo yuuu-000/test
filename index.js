@@ -20,15 +20,17 @@
    }
 
    if (circlock_savedLoadChecked !== "true") {
+      window.addEventListener("load", () => {
          Container.style.display = "none";
          menuBtn.style.display = "none";
          setTimeout(() => {
             loadOverlayOpen();
-         }, 3000)
+         }, 50)
          
          loadCloseBtn.addEventListener("click", () => {
             loadOverlayClose();
          })
+      });
    }
 
    function loadOverlayOpen() {
