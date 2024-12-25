@@ -34,9 +34,9 @@
    function loadOverlayOpen() {
       setTimeout(() => {
             loadCircle.style.display = "flex";
-            loadCircle.style.animation = "expand .5s ease-in forwards";
+            loadCircle.style.animation = "expand .55s ease-in forwards";
             loadOverlay.style.display = "flex";
-      }, 5)  
+      }, 10)  
       
       setTimeout(() => {
             loadOverlay.style.opacity = "1";
