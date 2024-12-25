@@ -20,24 +20,21 @@
    }
 
    if (circlock_savedLoadChecked !== "true") {
-      window.addEventListener("load", () => {
          Container.style.display = "none";
          menuBtn.style.display = "none";
-         loadOverlayOpen();
+         setTimeout(() => {
+            loadOverlayOpen();
+         }, 50)
          
          loadCloseBtn.addEventListener("click", () => {
             loadOverlayClose();
          })
-      })
    }
 
    function loadOverlayOpen() {
       loadCircle.style.display = "flex";
       loadOverlay.style.display = "flex";
-      
-      setTimeout(() => {
-            loadCircle.style.animation = "expand .5s ease-in forwards";
-      }, 15)
+      loadCircle.style.animation = "expand .5s ease-in forwards";
       
       setTimeout(() => {
             loadOverlay.style.opacity = "1";
