@@ -24,7 +24,7 @@
          menuBtn.style.display = "none";
          setTimeout(() => {
             loadOverlayOpen();
-         }, 50)
+         }, 1500)
          
          loadCloseBtn.addEventListener("click", () => {
             loadOverlayClose();
