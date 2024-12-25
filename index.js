@@ -36,12 +36,12 @@
             loadCircle.style.display = "flex";
             loadCircle.style.animation = "expand .45s ease-in forwards";
             loadOverlay.style.display = "flex";
-      }, 50)
+      }, 150)
       
       setTimeout(() => {
             loadOverlay.style.opacity = "1";
             loadOverlay.style.transform = "scale(1)";
-      }, 400)
+      }, 500)
    }
 
    function loadOverlayClose() {
