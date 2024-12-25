@@ -32,10 +32,12 @@
    }
 
    function loadOverlayOpen() {
-      loadCircle.style.display = "flex";
-      loadCircle.style.animation = "expand .5s ease-in forwards";
-      loadOverlay.style.display = "flex";
-
+      setTimeout(() => {
+            loadCircle.style.display = "flex";
+            loadCircle.style.animation = "expand .5s ease-in forwards";
+            loadOverlay.style.display = "flex";
+            console.log("loadOverlayOpen()実行されました");
+      }, 5)  
       setTimeout(() => {
             loadOverlay.style.opacity = "1";
             loadOverlay.style.transform = "scale(1)";
