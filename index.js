@@ -24,7 +24,7 @@
          menuBtn.style.display = "none";
          setTimeout(() => {
             loadOverlayOpen();
-         }, 1500)
+         }, 3000)
          
          loadCloseBtn.addEventListener("click", () => {
             loadOverlayClose();
@@ -32,6 +32,7 @@
    }
 
    function loadOverlayOpen() {
+      console.log("open")
       loadCircle.style.display = "flex";
       loadOverlay.style.display = "flex";
       loadCircle.style.animation = "expand .5s ease-in forwards";
