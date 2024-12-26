@@ -41,7 +41,7 @@
       setTimeout(() => {
             loadOverlay.style.opacity = "1";
             loadOverlay.style.transform = "scale(1)";
-      }, 750)
+      }, 700)
    }
 
    function loadOverlayOpen() {
