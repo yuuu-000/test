@@ -24,7 +24,7 @@
          Container.style.display = "none";
          menuBtn.style.display = "none";
          setTimeout(() => {
-            loadOverlayOpen();
+            loadOverlayOpenLoad();
          }, 100)
          
          loadCloseBtn.addEventListener("click", () => {
@@ -33,15 +33,26 @@
       });
    }
 
-   function loadOverlayOpen() {
+   function loadOverlayOpenLoad() {
       loadCircle.style.display = "flex";
       loadOverlay.style.display = "flex";
-      loadCircle.style.animation = "expand .8s cubic-bezier(.6, .06, .6, 1) forwards";
+      loadCircle.style.animation = "expand .9s cubic-bezier(.6, .06, .6, 1) forwards";
       
       setTimeout(() => {
             loadOverlay.style.opacity = "1";
             loadOverlay.style.transform = "scale(1)";
-      }, 700)
+      }, 800)
+   }
+
+   function loadOverlayOpen() {
+      loadCircle.style.display = "flex";
+      loadOverlay.style.display = "flex";
+      loadCircle.style.animation = "expand .5s ease-in forwards";
+      
+      setTimeout(() => {
+            loadOverlay.style.opacity = "1";
+            loadOverlay.style.transform = "scale(1)";
+      }, 400)
    }
 
    function loadOverlayClose() {
