@@ -37,12 +37,12 @@
       console.log("open")
       loadCircle.style.display = "flex";
       loadOverlay.style.display = "flex";
-      loadCircle.style.animation = "expand .7s cubic-bezier(.9,-0.03,.8,.8) forwards";
+      loadCircle.style.animation = "expand .75s cubic-bezier(1, -0.02, .7, .5) forwards";
       
       setTimeout(() => {
             loadOverlay.style.opacity = "1";
             loadOverlay.style.transform = "scale(1)";
-      }, 600)
+      }, 650)
    }
 
    function loadOverlayClose() {
