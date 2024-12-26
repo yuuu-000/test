@@ -25,7 +25,7 @@
          menuBtn.style.display = "none";
          setTimeout(() => {
             loadOverlayOpen();
-         }, 80)
+         }, 100)
          
          loadCloseBtn.addEventListener("click", () => {
             loadOverlayClose();
@@ -34,15 +34,14 @@
    }
 
    function loadOverlayOpen() {
-      console.log("open")
       loadCircle.style.display = "flex";
       loadOverlay.style.display = "flex";
-      loadCircle.style.animation = "expand .75s cubic-bezier(1, -0.1, .4, 1) forwards";
+      loadCircle.style.animation = "expand .8s cubic-bezier(.6, .06, .6, 1) forwards";
       
       setTimeout(() => {
             loadOverlay.style.opacity = "1";
             loadOverlay.style.transform = "scale(1)";
-      }, 650)
+      }, 700)
    }
 
    function loadOverlayClose() {
