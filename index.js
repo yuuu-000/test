@@ -37,7 +37,7 @@
       console.log("open")
       loadCircle.style.display = "flex";
       loadOverlay.style.display = "flex";
-      loadCircle.style.animation = "expand .7s ease-in forwards";
+      loadCircle.style.animation = "expand .7s cubic-bezier(.9,-0.03,.8,.8) forwards";
       
       setTimeout(() => {
             loadOverlay.style.opacity = "1";
