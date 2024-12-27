@@ -36,12 +36,12 @@
    function loadOverlayOpenLoad() {
       loadCircle.style.display = "flex";
       loadOverlay.style.display = "flex";
-      loadCircle.style.animation = "expand .9s cubic-bezier(.5, .05, .5, 1) forwards";
+      loadCircle.style.animation = "expand .95s cubic-bezier(.5, .05, .5, 1) forwards";
       
       setTimeout(() => {
             loadOverlay.style.opacity = "1";
             loadOverlay.style.transform = "scale(1)";
-      }, 750)
+      }, 700)
    }
 
    function loadOverlayOpen() {
