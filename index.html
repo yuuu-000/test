@@ -22,15 +22,18 @@
   <br><br>
 
   <!-- クリップボードからペーストするボタン -->
-  <button id="paste">クリップボードからペースト</button>
+  <button id="pasteBtn">クリップボードからペースト</button>
 
   <script>
     const textarea = document.getElementById("myTextarea");
-    const pasteButton = document.getElementById("paste");
+    const pasteButton = document.getElementById("pasteBtn");
 
-    pasteButton.addEventListener("click", () => {
-      const check = confirm("OK?");
-      if (check) {
+    // confirmを先に表示
+    const check = confirm("クリップボードの内容をペーストしますか？");
+
+    // OKならばイベントリスナーを追加
+    if (check) {
+      pasteButton.addEventListener("click", () => {
         navigator.clipboard.readText()
           .then((text) => {
             // もしテキストが空でなければペースト
@@ -44,8 +47,8 @@
             console.error("クリップボードの読み取りエラー:", err);
             alert("クリップボードからテキストを読み取れませんでした。");
           });
-      }
-    });
+      });
+    }
   </script>
 </body>
 </html>
