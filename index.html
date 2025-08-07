@@ -2,57 +2,50 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>ファイル編集デモ（分岐対応）</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>クリップボードからペースト</title>
+  <style>
+    textarea {
+      width: 100%;
+      height: 200px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-  <button id="openButton">ファイルを開く</button>
-  <textarea id="editor" style="width: 100%; height: 300px;"></textarea>
-  <button id="saveButton">保存</button>
+  <h1>クリップボードの内容をペースト</h1>
+
+  <!-- 入力エリア -->
+  <textarea id="myTextarea" placeholder="ここにクリップボードの内容がペーストされます..."></textarea>
+
+  <br><br>
+
+  <!-- クリップボードからペーストするボタン -->
+  <button id="paste">クリップボードからペースト</button>
 
   <script>
-    let fileHandle;
+    const textarea = document.getElementById("myTextarea");
+    const pasteButton = document.getElementById("paste");
 
-    // 使用可能かチェック
-    const isFileSystemAccessSupported = 'showOpenFilePicker' in window;
-
-    document.getElementById('openButton').addEventListener('click', async () => {
-      if (!isFileSystemAccessSupported) {
-        alert('このブラウザはファイル操作に対応していません。ChromeまたはEdgeを使用してください。');
-        return;
-      }
-
-      try {
-        [fileHandle] = await window.showOpenFilePicker({
-          types: [{
-            description: 'Text Files',
-            accept: {'text/plain': ['.txt']}
-          }]
-        });
-
-        const file = await fileHandle.getFile();
-        const contents = await file.text();
-        document.getElementById('editor').value = contents;
-      } catch (err) {
-        console.error('ファイル読み込みエラー:', err);
-      }
-    });
-
-    document.getElementById('saveButton').addEventListener('click', async () => {
-      if (!isFileSystemAccessSupported || !fileHandle) {
-        alert('保存できません。まずファイルを開いてください。');
-        return;
-      }
-
-      try {
-        const writable = await fileHandle.createWritable();
-        await writable.write(document.getElementById('editor').value);
-        await writable.close();
-        alert('保存しました。');
-      } catch (err) {
-        console.error('保存エラー:', err);
+    pasteButton.addEventListener("click", () => {
+      const check = confirm("OK?");
+      if (check) {
+        navigator.clipboard.readText()
+          .then((text) => {
+            // もしテキストが空でなければペースト
+            if (text.trim() === "") {
+              alert("クリップボードは空です。テキストをコピーしてから試してください。");
+            } else {
+              textarea.value = text;
+            }
+          })
+          .catch((err) => {
+            console.error("クリップボードの読み取りエラー:", err);
+            alert("クリップボードからテキストを読み取れませんでした。");
+          });
       }
     });
   </script>
 </body>
 </html>
-
